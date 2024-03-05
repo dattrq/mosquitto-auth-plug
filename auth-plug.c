@@ -599,7 +599,7 @@ int mosquitto_auth_unpwd_check(void *userdata, const char *username, const char 
 }
 #if MOSQ_AUTH_PLUGIN_VERSION >= 4
 int mosquitto_auth_acl_check(void *userdata, int access, struct mosquitto *client, const struct mosquitto_acl_msg *msg)
-#el#if MOSQ_AUTH_PLUGIN_VERSION >= 3
+#elif MOSQ_AUTH_PLUGIN_VERSION >= 3
 int mosquitto_auth_acl_check(void *userdata, int access, const struct mosquitto *client, const struct mosquitto_acl_msg *msg)
 #else
 int mosquitto_auth_acl_check(void *userdata, const char *clientid, const char *username, const char *topic, int access)
@@ -751,7 +751,7 @@ int mosquitto_auth_acl_check(void *userdata, const char *clientid, const char *u
 
 #if MOSQ_AUTH_PLUGIN_VERSION >= 4
 int mosquitto_auth_psk_key_get(void *userdata, struct mosquitto *client, const char *hint, const char *identity, char *key, int max_key_len)
-#el#if MOSQ_AUTH_PLUGIN_VERSION >= 3
+#elif MOSQ_AUTH_PLUGIN_VERSION >= 3
 int mosquitto_auth_psk_key_get(void *userdata, const struct mosquitto *client, const char *hint, const char *identity, char *key, int max_key_len)
 #else
 int mosquitto_auth_psk_key_get(void *userdata, const char *hint, const char *identity, char *key, int max_key_len)
